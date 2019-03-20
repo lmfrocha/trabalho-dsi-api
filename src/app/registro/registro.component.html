@@ -45,11 +45,18 @@
             <i class="fa fa-lock" aria-hidden="true"></i>
           </span>
         </div>
+        <div class="wrap-input100 validate-input" data-validate="Password is required">
+          <mat-radio-group formControlName="TipoUsuario" aria-label="Select an option">
+            <mat-radio-button class="check" value="paciente">Paciente</mat-radio-button>
+            <mat-radio-button value="medico">Médico</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
         <div class="container-login100-form-btn">
-            <button class="login100-form-btn" (click)="registrar()">
-              Cadastrar
-            </button>
-          </div>
+          <button class="login100-form-btn" (click)="registro()">
+            Cadastrar
+          </button>
+        </div>
       </form>
     </div>
   </div>

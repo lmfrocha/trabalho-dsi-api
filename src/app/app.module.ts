@@ -18,6 +18,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatRadioModule} from '@angular/material/radio';
+import { RegistroService } from './registro/registro.service';
+import { GlicemiaService } from './glicemia/glicemia.service';
+
 // MDB Angular Pro
 @NgModule({
   declarations: [
@@ -49,9 +54,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
+    MatRadioModule
   ],
-  providers: [AuthService],
+  providers: [RegistroService, AuthService, GlicemiaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

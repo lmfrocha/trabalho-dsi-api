@@ -11,6 +11,9 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   realizarLogin(user: User) {
+    this.router.navigate(['glicemia']);
+    this.mostrarMenu.emit(true);
+    console.log('akldjflçadjfajsfjasdçklj');
     const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     const body = new URLSearchParams();
     console.log(user);
@@ -19,11 +22,7 @@ export class AuthService {
     body.set('grant_type', 'password');
     return this.http.post('http://localhost:59061/api/token', body.toString(), { headers }).subscribe(res => {
       console.log(res);
-      this.mostrarMenu.emit(true);
-      this.router.navigate(['/']);
+      localStorage.setItem('currentUser', user.Email);
     });
-
-    this.mostrarMenu.emit(true);
-    this.router.navigate(['/']);
   }
 }

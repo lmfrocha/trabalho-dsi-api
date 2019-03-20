@@ -4,4 +4,5 @@ export interface CadastroModel {
     Email: string;
     Senha: string;
     ConfirmarSenha: string;
+    TipoUsuario: string;
 }

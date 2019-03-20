@@ -2,6 +2,7 @@ import { GlicemiaModel } from './models/glicemia.model';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Tipo } from './models/glicemia-tipo.model';
+import { GlicemiaService } from './glicemia.service';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class GlicemiaComponent implements OnInit {
     { value: 'aoDormirMadru', viewValue: 'Ao Dormir/Madrugada' },
   ];
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private glicemiaService: GlicemiaService) { }
   ngOnInit() {
     this.dataForm = this.fb.group({
       Data: [new Date(), Validators.required],
@@ -42,10 +43,8 @@ export class GlicemiaComponent implements OnInit {
     });
   }
 
-  adicionar() {
-    this.glicemia.Data = this.dataForm.get('Data').value;
-    this.glicemia.Hora = this.dataForm.get('Hora').value;
-    this.glicemia.Nivel = this.nivelForm.get('Nivel').value;
-    this.glicemia.Tipo = this.nivelForm.get('Tipo').value;
+  inserirGlicemia() {
+    this.glicemia = this.dataForm.value;
+    this.glicemiaService.inserirGlicemia(this.glicemia);
   }
 }
