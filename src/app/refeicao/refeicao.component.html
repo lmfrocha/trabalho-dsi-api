@@ -1,0 +1,42 @@
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="dataForm" errorMessage="Informe a data e hora">
+    <form [formGroup]="dataForm">
+      <ng-template matStepLabel>Quando se alimentou?</ng-template>
+      <mat-form-field>
+        <input required matInput [matDatepicker]="picker" required placeholder="Selecione a data e hora" formControlName="Data">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput type="time" required placeholder="" value="hora" formControlName="Hora">
+        </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="tipoForm">
+    <form [formGroup]="tipoForm">
+      <ng-template matStepLabel>Refeição</ng-template>
+          <mat-form-field>
+            <input formControlName="Refeicao" matInput placeholder="Alimento">
+            </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-button matStepperNext>Próximo</button>
+      </div>
+    </form>
+  </mat-step>
+  
+  <mat-step>
+    <ng-template matStepLabel>Finalizar</ng-template>
+    Está tudo OK?
+    <div>
+      <button mat-button matStepperPrevious>Voltar</button>
+      <button mat-button (click)="stepper.reset()">Resetar</button>
+      <button mat-button (click)="inserirRefeicao()">Confimar</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

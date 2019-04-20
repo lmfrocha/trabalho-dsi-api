@@ -22,6 +22,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatRadioModule} from '@angular/material/radio';
 import { RegistroService } from './registro/registro.service';
 import { GlicemiaService } from './glicemia/glicemia.service';
+import { ExportartabelaComponent } from './exportartabela/exportartabela.component';
+import {MatTableModule} from '@angular/material/table';
+import { ExportartabelaService } from './exportartabela/exportartabela.service';
+import { RefeicaoComponent } from './refeicao/refeicao.component';
 
 // MDB Angular Pro
 @NgModule({
@@ -31,7 +35,9 @@ import { GlicemiaService } from './glicemia/glicemia.service';
     ContentComponent,
     GlicemiaComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    ExportartabelaComponent,
+    RefeicaoComponent
   ],
   imports: [
     BrowserModule,
@@ -56,9 +62,10 @@ import { GlicemiaService } from './glicemia/glicemia.service';
     MatSelectModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTableModule
   ],
-  providers: [RegistroService, AuthService, GlicemiaService],
+  providers: [RegistroService, AuthService, GlicemiaService, ExportartabelaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

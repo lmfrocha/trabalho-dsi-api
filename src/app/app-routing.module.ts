@@ -1,3 +1,5 @@
+import { RefeicaoComponent } from './refeicao/refeicao.component';
+import { ExportartabelaComponent } from './exportartabela/exportartabela.component';
 import { LoginComponent } from './login/login.component';
 import { ContentComponent } from './content/content.component';
 import { GlicemiaComponent } from './glicemia/glicemia.component';
@@ -10,6 +12,8 @@ const routes: Routes = [
   { path: 'home', component: ContentComponent },
   { path: '', component: LoginComponent},
   { path: 'registro', component: RegistroComponent},
+  { path: 'exportartabela', component: ExportartabelaComponent},
+  { path: 'refeicao', component: RefeicaoComponent},
 ];
 
 @NgModule({
