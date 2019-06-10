@@ -1,3 +1,5 @@
+import { PacienteVinculadoService } from './paciente-vinculado/paciente-vinculado.service';
+import { VincularService } from './vincular/vincular.service';
 import { AuthService } from './login/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -26,6 +28,10 @@ import { ExportartabelaComponent } from './exportartabela/exportartabela.compone
 import {MatTableModule} from '@angular/material/table';
 import { ExportartabelaService } from './exportartabela/exportartabela.service';
 import { RefeicaoComponent } from './refeicao/refeicao.component';
+import { ExportarRefeicaoComponent } from './exportar-refeicao/exportar-refeicao.component';
+import { ExportarRefeicaoService } from './exportar-refeicao/exportar-refeicao.service';
+import { VincularComponent } from './vincular/vincular.component';
+import { PacienteVinculadoComponent } from './paciente-vinculado/paciente-vinculado.component';
 
 // MDB Angular Pro
 @NgModule({
@@ -37,7 +43,10 @@ import { RefeicaoComponent } from './refeicao/refeicao.component';
     LoginComponent,
     RegistroComponent,
     ExportartabelaComponent,
-    RefeicaoComponent
+    RefeicaoComponent,
+    ExportarRefeicaoComponent,
+    VincularComponent,
+    PacienteVinculadoComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +74,8 @@ import { RefeicaoComponent } from './refeicao/refeicao.component';
     MatRadioModule,
     MatTableModule
   ],
-  providers: [RegistroService, AuthService, GlicemiaService, ExportartabelaService],
+  // tslint:disable-next-line:max-line-length
+  providers: [RegistroService, AuthService, GlicemiaService, ExportartabelaService, ExportarRefeicaoService, VincularService, PacienteVinculadoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

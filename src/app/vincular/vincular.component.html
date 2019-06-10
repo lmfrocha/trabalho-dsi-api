@@ -1,0 +1,12 @@
+<h4>Vincular Paciente</h4>
+<form [formGroup]="dataForm">
+<mat-form-field (ngModelChange)="teste()">
+  <mat-label>Selecione</mat-label>
+  <mat-select formControlName="Vincular" >
+    <mat-option *ngFor="let item of listaPacientes" [value]="item.Id">
+      {{item.Nome}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+</form>
+<button mat-button (click)="teste()">Vincular</button>

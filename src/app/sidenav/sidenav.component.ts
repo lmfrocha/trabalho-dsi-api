@@ -16,6 +16,7 @@ export class SidenavComponent implements OnInit {
     .pipe(
       map(result => result.matches)
     );
+  mostrarMenuMed = false;
 
   constructor(private breakpointObserver: BreakpointObserver, private authService: AuthService) {}
 
@@ -23,6 +24,10 @@ export class SidenavComponent implements OnInit {
     this.authService.mostrarMenu.subscribe(res => {
       this.mostrarMenu = res;
     });
+
+    if ( localStorage.getItem('currentUser') === 'medico@medico.com'){
+      this.mostrarMenuMed = true;
+    }
   }
 
 }
